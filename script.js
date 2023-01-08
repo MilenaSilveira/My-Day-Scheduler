@@ -55,7 +55,7 @@ $(".saveBtn").on("click", function (params) {
     console.log(index, currenttextarea);
 
     var divText = $(this).parent()[0].id
-    var textValue = localStorage.getItem(divText)
+    var textValue = localStorage.getItem(divText);
     console.log(textValue);
 
   $(this)[0].value = textValue

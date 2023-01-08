@@ -15,6 +15,7 @@ past = gray, present = red and future = green.
 
 ## Live Link
 
+ https://milenasilveira.github.io/My-Day-Scheduler/
 
 ## Screenshots
 
