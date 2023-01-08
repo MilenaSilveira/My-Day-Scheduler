@@ -7,23 +7,59 @@ $(function () {
     var date = dayjs();
   $("#currentDay").text(date.format("MMM D, YYYY"));
 
+  function displayTime() {
+    var actualTime = dayjs().hour();
+    //console.log(currentTime);
+
+    $(".time-block").each(function (index, timeSection) {
+      //console.log(index, timeDiv);
+      var id = timeSection.id;
+      //console.log(id);
+
+      var stopTime = parseInt(id.split("-")[1]);
+      //console.log(blockTime);
+      //== value
+      //=== value, data type
+
+      if (actualTime === stopTime) {
+        $(this).addClass("present");
+      } else if (actualTime > stopTime) {
+        $(this).addClass("past");
+      } else {
+        $(this).addClass("future");
+      }
+    });
+  }
+
     //Save button.
 $(".saveBtn").on("click", function (params) {
-    console.log(this);
+    console.log($(this).prev());
     var id = $(this).attr("id");
 
+    var divId = $(this).parent()[0].id
+    console.log(divId)
+
     //get user input from textarea.
-    const userEntry = document.getElementById("user-event").value;
+    const userEntry = $(this).prev()[0].value;
+    console.log(userEntry)
 
     //Gets input information or make a new array.
-    let list = JSON.parse(localStorage.getItem("Event")) || [];
-
-    // Save the users input to local storage.
-    list.push(userEntry);
-    localStorage.setItem("Event", JSON.stringify(list));
+   
+    localStorage.setItem(divId, JSON.stringify(userEntry));
   });
 
+  $(".description").each(function(index, currenttextarea){
+    console.log(index, currenttextarea);
 
+    var divId = $(this).parent()[0].id
+    var textValue = localStorage.getItem(divId)
+    console.log(textValue);
+
+  $(this)[0].value = textValue
+  
+  })
+
+  displayTime();
 
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
