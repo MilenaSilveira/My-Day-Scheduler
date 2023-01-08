@@ -40,6 +40,7 @@ $(".saveBtn").on("click", function (params) {
     console.log(divId)
 
     //get user input from textarea.
+
     const userEntry = $(this).prev()[0].value;
     console.log(userEntry)
 
@@ -48,6 +49,8 @@ $(".saveBtn").on("click", function (params) {
     localStorage.setItem(divId, JSON.stringify(userEntry));
   });
 
+
+  //Select class "description" and save each slot's input to schedule.
   $(".description").each(function(index, currenttextarea){
     console.log(index, currenttextarea);
 
