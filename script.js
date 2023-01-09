@@ -8,22 +8,18 @@ $(function () {
   $("#currentDay").text(date.format("MMM D, YYYY"));
 
   function displayTime() {
-    var actualTime = dayjs().hour();
-    //console.log(currentTime);
+    var currentTime = dayjs().hour();
+    
 
     $(".time-block").each(function (index, timeSection) {
-      //console.log(index, timeDiv);
+    
       var id = timeSection.id;
-      //console.log(id);
+      var clearTime = parseInt(id.split("-")[1]);
+     
 
-      var stopTime = parseInt(id.split("-")[1]);
-      //console.log(blockTime);
-      //== value
-      //=== value, data type
-
-      if (actualTime === stopTime) {
+      if (currentTime === clearTime) {
         $(this).addClass("present");
-      } else if (actualTime > stopTime) {
+      } else if (currentTime > clearTime) {
         $(this).addClass("past");
       } else {
         $(this).addClass("future");
@@ -56,9 +52,13 @@ $(".saveBtn").on("click", function (params) {
 
     var divText = $(this).parent()[0].id
     var textValue = localStorage.getItem(divText);
+
+    $(this)[0].value = textValue.replace(/^"|"$/g, "");
     console.log(textValue);
 
-  $(this)[0].value = textValue
+    
+  
+
 
   })
 
