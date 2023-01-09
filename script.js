@@ -1,6 +1,4 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+
 $(function () {
 
     //Current date.
@@ -15,8 +13,8 @@ $(function () {
     
       var id = timeSection.id;
       var clearTime = parseInt(id.split("-")[1]);
-     
-//Adds class that will change colors according to status of the event.
+
+     //Adds class that will change colors according to status of the event.
       if (currentTime === clearTime) {
         $(this).addClass("present");
       } else if (currentTime > clearTime) {
