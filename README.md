@@ -19,10 +19,8 @@ past = gray, present = red and future = green.
 
 ## Screenshots
 
-<!-- ![Start Quiz page.](assets/Images/quiz1.png)
-![Questions page.](assets/Images/quiz2.png)
-![Initals input to register score.](assets/Images/quiz3.png)
-![Scores page.](assets/Images/quiz4.png) -->
+![Passed time slot.](assets/Images/img1.png)
+![Current and future time slot.](assets/Images/img2.png)
 
 ## Versioning
 
